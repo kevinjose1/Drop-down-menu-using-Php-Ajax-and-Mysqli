@@ -56,41 +56,19 @@ span.psw {
 
 
 
-<form action="" method="post">
+<form action="../database/operations.php" method="POST">
   
 
   <div class="container">
-    <label for="uname"><b>Department Name</b></label>
-    <input type="text" placeholder="Enter Department Name" name="deptname" required>
-
+    <label for="studname"><b>Enter Staff Name</b></label>
+    <input type="text" placeholder="Enter Staff Name" name="staffname" required>
+	   <label for="coursename"><b>Enter Course Name</b></label>
+    <input type="text" placeholder="Enter Course Name" name="coursename1">
    
-    <input type="submit" name="submit">
+    <input type="submit" name="add1" value="Register">
         
     
   </div>
 
  
 </form>
-	<?php
-	$con= new mysqli('localhost','root','','course');
-	if(isset($_POST['submit']))
-	{
-		
-		$deptname= $_POST['deptname'];
-		
-		$sql="Insert into dept values('','$deptname')";
-		$result= mysqli_query($con,$sql);
-//		echo $sql;exit;
-			 if($result==true)
-    {
-        echo "Success";
-				 				 header('Location:index.php');
-    }
- else {
-    echo "failed"    ;
-    }
-}
-?>
-
-</body>
-</html>
